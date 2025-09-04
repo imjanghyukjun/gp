@@ -23,7 +23,7 @@
     .wrap {
       display: grid;
       grid-template-columns: 1fr 2fr;
-      gap: 10px;            /* 좌우 간격도 20px */
+      gap: 10px;
       align-items: start;
     }
 
@@ -31,9 +31,20 @@
     .side h1,
     .side h2,
     .side p {
-      margin: 0 0 5px 0;   /* 줄 간격은 최소로 */
+      margin: 0 0 5px 0;
       font-weight: normal;
       font-size: 15px;
+    }
+
+    /* h2(장혁준) 밑에만 여백 */
+    .side h2 {
+      margin-bottom: 20px;
+    }
+
+    /* 좌측 텍스트에 밑줄 */
+    .side h1 a,
+    .side h2 {
+      text-decoration: underline;
     }
 
     .side a {
@@ -47,7 +58,7 @@
       display: block;
     }
     .item {
-      margin: 0 0 8px 0;    /* 리스트 줄 간격 */
+      margin: 0 0 8px 0;
     }
     .item a {
       color: #000;
@@ -56,20 +67,14 @@
     }
     .item a:hover { color: #808080; }
 
-    /* 메타(연도/태그)는 같은 줄에 얇게 구분용 점 */
-    .meta {
-      margin-left: 12px;
-      opacity: 0.6;         /* 살짝 옅게 */
-    }
-
-    /* “예정” 항목 표기 */
+    /* 예정 항목 표기 */
     .muted {
-      color: #cccccc;       /* 블랙 20% 정도의 밝기 */
+      color: #cccccc;
       pointer-events: none;
       cursor: default;
     }
 
-    /* 반응형: 좁은 화면에서는 한 열로 정렬 */
+    /* 반응형 */
     @media (max-width: 900px) {
       .wrap { grid-template-columns: 1fr; }
     }
@@ -79,13 +84,13 @@
   <div class="wrap">
     <!-- 좌측: 고정 정보 -->
     <aside class="side">
-      <h1>졸업프로젝트</h1>
+      <h1><a href="index.html">졸업프로젝트</a></h1>
       <h2>장혁준</h2>
       <p><a href="mailto:imjanghyukjun@gmail.com">imjanghyukjun@gmail.com</a></p>
       <p>010-3315-2384</p>
     </aside>
 
-    <!-- 우측: 프로젝트/주차 리스트 (필요에 맞게 수정) -->
+    <!-- 우측: 프로젝트/주차 리스트 -->
     <main class="list">
       <div class="item"><a href="w1.html">W1/2025.9.2</a></div>
       <div class="item"><a href="w2.html">W2/2025.9.9</a></div>
