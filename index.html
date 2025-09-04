@@ -108,6 +108,22 @@
       .wrap { grid-template-columns: 1fr; }
       .statement { max-width: 100%; } /* 작은 화면에서는 제한 해제 */
     }
+
+    .btn {
+      display: inline-block;
+      margin-top: 8px;       /* 위쪽 간격 */
+      padding: 4px 10px;
+      font-size: 12px;
+      background: #000;      /* 검정 배경 */
+      color: #fff;           /* 흰 글자 */
+      border-radius: 6px;    /* 둥근 모서리 */
+      text-decoration: none; /* 밑줄 제거 */
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #808080;   /* 마우스 올리면 회색 */
+    }
   </style>
 </head>
 <body>
@@ -118,6 +134,7 @@
       <h2>장혁준</h2>
       <p><a href="mailto:imjanghyukjun@gmail.com">imjanghyukjun@gmail.com</a></p>
       <p>010-3315-2384</p>
+      <a href="https://instagram.com/janghyukjun_/" target="_blank" class="btn">Instagram</a>
     </aside>
 
     <!-- 가운데: 작업 설명 -->
