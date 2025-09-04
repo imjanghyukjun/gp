@@ -49,8 +49,15 @@
     }
     .side a:hover { color: #808080; }
 
-    /* 슬라이더 */
+    /* 본문 전체 */
     main {
+      display: flex;
+      flex-direction: column;
+      gap: 100px; /* 위아래 슬라이드 사이 여백 */
+    }
+
+    /* 각 슬라이드 영역 */
+    .slider-container {
       position: relative;
       overflow: hidden;
     }
@@ -117,41 +124,67 @@
       <p>W1/2025.9.2</p>
     </aside>
 
-    <!-- 본문: 이미지 슬라이드 -->
+    <!-- 본문: 두 개의 슬라이드 영역 -->
     <main>
-      <div class="slider" id="slider">
-        <div class="slide"><img src="gp/images/090212.jpg" alt="090212" /></div>
-        <div class="slide"><img src="gp/images/090213.jpg" alt="090213" /></div>
-        <div class="slide"><img src="gp/images/090214.jpg" alt="090214" /></div>
-        <div class="slide"><img src="gp/images/090215.jpg" alt="090215" /></div>
-        <div class="slide"><img src="gp/images/090216.jpg" alt="090216" /></div>
-        <div class="slide"><img src="gp/images/090217.jpg" alt="090217" /></div>
-        <div class="slide"><img src="gp/images/090218.jpg" alt="090218" /></div>
-        <div class="slide"><img src="gp/images/090219.jpg" alt="090219" /></div>
-        <div class="slide"><img src="gp/images/090220.jpg" alt="090220" /></div>
-        <div class="slide"><img src="gp/images/090221.jpg" alt="090221" /></div>
-        <div class="slide"><img src="gp/images/090222.jpg" alt="090222" /></div>
+      <!-- 위쪽: 보1 ~ 보9 -->
+      <div class="slider-container">
+        <div class="slider" id="sliderTop">
+          <div class="slide"><img src="gp/images/보1.jpg" alt="보1" /></div>
+          <div class="slide"><img src="gp/images/보2.jpg" alt="보2" /></div>
+          <div class="slide"><img src="gp/images/보3.jpg" alt="보3" /></div>
+          <div class="slide"><img src="gp/images/보4.jpg" alt="보4" /></div>
+          <div class="slide"><img src="gp/images/보5.jpg" alt="보5" /></div>
+          <div class="slide"><img src="gp/images/보6.jpg" alt="보6" /></div>
+          <div class="slide"><img src="gp/images/보7.jpg" alt="보7" /></div>
+          <div class="slide"><img src="gp/images/보8.jpg" alt="보8" /></div>
+          <div class="slide"><img src="gp/images/보9.jpg" alt="보9" /></div>
+        </div>
+        <button class="arrow left" onclick="moveSlide('sliderTop', -1)">&#10094;</button>
+        <button class="arrow right" onclick="moveSlide('sliderTop', 1)">&#10095;</button>
       </div>
-      <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button>
-      <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
+
+      <!-- 아래쪽: 090212 ~ 090222 -->
+      <div class="slider-container">
+        <div class="slider" id="sliderBottom">
+          <div class="slide"><img src="gp/images/090212.jpg" alt="090212" /></div>
+          <div class="slide"><img src="gp/images/090213.jpg" alt="090213" /></div>
+          <div class="slide"><img src="gp/images/090214.jpg" alt="090214" /></div>
+          <div class="slide"><img src="gp/images/090215.jpg" alt="090215" /></div>
+          <div class="slide"><img src="gp/images/090216.jpg" alt="090216" /></div>
+          <div class="slide"><img src="gp/images/090217.jpg" alt="090217" /></div>
+          <div class="slide"><img src="gp/images/090218.jpg" alt="090218" /></div>
+          <div class="slide"><img src="gp/images/090219.jpg" alt="090219" /></div>
+          <div class="slide"><img src="gp/images/090220.jpg" alt="090220" /></div>
+          <div class="slide"><img src="gp/images/090221.jpg" alt="090221" /></div>
+          <div class="slide"><img src="gp/images/090222.jpg" alt="090222" /></div>
+        </div>
+        <button class="arrow left" onclick="moveSlide('sliderBottom', -1)">&#10094;</button>
+        <button class="arrow right" onclick="moveSlide('sliderBottom', 1)">&#10095;</button>
+      </div>
     </main>
   </div>
 
   <div class="nav-bar"></div>
 
   <script>
-    const slider = document.getElementById('slider');
-    const slides = document.querySelectorAll('.slide');
-    let currentIndex = 0;
+    // 슬라이드 상태 저장
+    const sliders = {
+      sliderTop: { index: 0, el: document.getElementById('sliderTop') },
+      sliderBottom: { index: 0, el: document.getElementById('sliderBottom') }
+    };
 
-    function moveSlide(direction) {
-      currentIndex += direction;
-      if (currentIndex < 0) {
-        currentIndex = slides.length - 1;
-      } else if (currentIndex >= slides.length) {
-        currentIndex = 0;
+    function moveSlide(id, direction) {
+      const slider = sliders[id];
+      const slides = slider.el.querySelectorAll('.slide');
+      slider.index += direction;
+
+      if (slider.index < 0) {
+        slider.index = slides.length - 1;
+      } else if (slider.index >= slides.length) {
+        slider.index = 0;
       }
-      slider.style.transform = `translateX(${-currentIndex * 100}%)`;
+
+      slider.el.style.transform = `translateX(${-slider.index * 100}%)`;
     }
   </script>
 </body>
