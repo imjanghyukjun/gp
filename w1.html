@@ -2,79 +2,57 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>W1 — 졸업프로젝트 장혁준</title>
+  <title>W1/2025.9.2 — 졸업프로젝트 장혁준</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     html, body {
-      background: #fff;
       margin: 0;
       padding: 0;
+      background: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000;
     }
     body {
-      font-family: Arial, Helvetica, sans-serif;
       font-size: 50px;
-      line-height: 1;
-      font-weight: normal;
-      color: #000;
+      line-height: 1.2;
       padding: 20px;
+      box-sizing: border-box;
     }
 
-    /* 레이아웃: 좌측 정보 / 가운데 공백 / 우측 이미지 */
-    .wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr 2fr;
-      gap: 40px;
-      align-items: start;
-    }
-
-    /* 좌측: 이름/소개 */
+    /* 상단 정보 */
     .side h1,
     .side h2 {
       margin: 0 0 5px 0;
       font-weight: normal;
       font-size: 15px;
     }
-    .side h2 { margin-bottom: 20px; }
     .side h1 a {
       text-decoration: underline;
       color: #000;
     }
-    .side a { color: #000; text-decoration: none; }
-    .side a:hover { color: #808080; }
+    .side h1 a:hover { color: #808080; }
 
-    /* 이미지 슬라이드 */
-    .slideshow {
-      position: relative;
+    /* 제목 */
+    .title {
+      margin: 40px 0 20px 0;
+      font-size: 30px;
+      font-weight: normal;
+    }
+
+    /* 이미지 갤러리 */
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 40px; /* 이미지 사이 여백 */
+      margin-bottom: 220px; /* 하단 블랙바 때문에 */
+    }
+    .gallery img {
       width: 100%;
-      height: 100%;
-      background: #000;
-      overflow: hidden;
-    }
-    .slide {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%); /* 중앙 정렬 */
-      max-height: calc(100vh - 200px); /* 블랙바 높이 제외 */
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-      display: none;
-    }
-    .slide.active {
+      height: auto;
       display: block;
     }
-    .nav {
-      position: absolute;
-      top: 0;
-      width: 50%;
-      height: 100%;
-      cursor: pointer;
-    }
-    .nav.left { left: 0; }
-    .nav.right { right: 0; }
 
-    /* 하단 고정 블랙바 */
+    /* 하단 블랙바 */
     .nav-bar {
       position: fixed;
       bottom: 0;
@@ -84,70 +62,26 @@
       background: #000;
       z-index: 100;
     }
-
-    /* 반응형 */
-    @media (max-width: 900px) {
-      .wrap { grid-template-columns: 1fr; }
-    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- 좌측: 고정 정보 -->
-    <aside class="side">
-      <h1><a href="index.html">졸업프로젝트</a></h1>
-      <h2>장혁준</h2>
-      <p>W1/2025.9.2</p>
-    </aside>
+  <!-- 좌측 상단 고정 정보 -->
+  <div class="side">
+    <h1><a href="index.html">졸업프로젝트</a></h1>
+    <h2>장혁준</h2>
+  </div>
 
-    <!-- 가운데 비워둠 -->
-    <div></div>
+  <!-- 제목 -->
+  <div class="title">W1/2025.9.2</div>
 
-    <!-- 우측: 이미지 슬라이드 -->
-    <div class="slideshow">
-      <img src="images/090212.jpg" class="slide active" alt="이미지 1">
-      <img src="images/090213.jpg" class="slide" alt="이미지 2">
-      <img src="images/090214.jpg" class="slide" alt="이미지 3">
-      <img src="images/090215.jpg" class="slide" alt="이미지 4">
-      <img src="images/090216.jpg" class="slide" alt="이미지 5">
-      <img src="images/090217.jpg" class="slide" alt="이미지 6">
-      <img src="images/090218.jpg" class="slide" alt="이미지 7">
-      <img src="images/090219.jpg" class="slide" alt="이미지 8">
-      <img src="images/090220.jpg" class="slide" alt="이미지 9">
-      <img src="images/090221.jpg" class="slide" alt="이미지 10">
-      <img src="images/090222.jpg" class="slide" alt="이미지 11">
-
-      <!-- 좌우 클릭 영역 -->
-      <div class="nav left"></div>
-      <div class="nav right"></div>
-    </div>
+  <!-- 이미지 갤러리 -->
+  <div class="gallery">
+    <img src="images/090212.jpg" alt="사진1" />
+    <img src="images/090213.jpg" alt="사진2" />
+    <img src="images/090214.jpg" alt="사진3" />
   </div>
 
   <!-- 하단 블랙바 -->
   <div class="nav-bar"></div>
-
-  <script>
-    const slides = document.querySelectorAll(".slide");
-    let current = 0;
-
-    function showSlide(index) {
-      slides.forEach((s, i) => {
-        s.classList.toggle("active", i === index);
-      });
-    }
-
-    document.querySelector(".nav.left").addEventListener("click", () => {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
-    });
-
-    document.querySelector(".nav.right").addEventListener("click", () => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    });
-
-    // 첫 번째 이미지 표시
-    showSlide(current);
-  </script>
 </body>
 </html>
