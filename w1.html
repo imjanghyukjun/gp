@@ -11,6 +11,8 @@
       background: #fff;
       font-family: Arial, Helvetica, sans-serif;
       color: #000;
+      height: 100%;
+      overflow: hidden; /* 스크롤 막음 */
     }
     body {
       font-size: 50px;
@@ -39,18 +41,34 @@
       font-weight: normal;
     }
 
-    /* 이미지 갤러리 */
-    .gallery {
-      display: flex;
-      flex-direction: column;
-      gap: 40px; /* 이미지 사이 여백 */
-      margin-bottom: 220px; /* 하단 블랙바 때문에 */
-    }
-    .gallery img {
+    /* 슬라이드 영역 */
+    .slideshow {
+      position: relative;
       width: 100%;
-      height: auto;
+      height: calc(100vh - 200px - 140px); /* 화면 높이 - 블랙바 - 여백(제목/상단) */
+      overflow: hidden;
+    }
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* 이미지 비율 유지 */
+      display: none;
+    }
+    .slideshow img.active {
       display: block;
     }
+
+    /* 클릭 영역 */
+    .slideshow .left,
+    .slideshow .right {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      cursor: pointer;
+    }
+    .slideshow .left { left: 0; }
+    .slideshow .right { right: 0; }
 
     /* 하단 블랙바 */
     .nav-bar {
@@ -65,7 +83,7 @@
   </style>
 </head>
 <body>
-  <!-- 좌측 상단 고정 정보 -->
+  <!-- 좌측 상단 -->
   <div class="side">
     <h1><a href="index.html">졸업프로젝트</a></h1>
     <h2>장혁준</h2>
@@ -74,14 +92,40 @@
   <!-- 제목 -->
   <div class="title">W1/2025.9.2</div>
 
-  <!-- 이미지 갤러리 -->
-  <div class="gallery">
-    <img src="images/090212.jpg" alt="사진1" />
+  <!-- 슬라이드 -->
+  <div class="slideshow">
+    <img src="images/090212.jpg" class="active" alt="사진1" />
     <img src="images/090213.jpg" alt="사진2" />
     <img src="images/090214.jpg" alt="사진3" />
+
+    <div class="left"></div>
+    <div class="right"></div>
   </div>
 
   <!-- 하단 블랙바 -->
   <div class="nav-bar"></div>
+
+  <script>
+    const slides = document.querySelectorAll(".slideshow img");
+    const left = document.querySelector(".slideshow .left");
+    const right = document.querySelector(".slideshow .right");
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.toggle("active", i === index);
+      });
+    }
+
+    right.addEventListener("click", () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+
+    left.addEventListener("click", () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+  </script>
 </body>
 </html>
