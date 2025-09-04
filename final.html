@@ -94,27 +94,34 @@
 
   <script>
     const deadline = new Date("2025-12-01T00:00:00");
+  
     function updateCountdown() {
       const now = new Date();
       const diff = deadline - now;
-
+  
       if (diff <= 0) {
         document.getElementById("countdown").textContent = "졸업전시 시작!";
         return;
       }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  
+      // 총 시간 계산
+      const totalHours = Math.floor(diff / (1000 * 60 * 60));
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      // 우측에 크게 표시 (일, 시간, 분, 초)
+  
+      // 두 자리 맞추기
+      const h = String(totalHours).padStart(2, "0");
+      const m = String(minutes).padStart(2, "0");
+      const s = String(seconds).padStart(2, "0");
+  
+      // 출력: 2089:48:49
       document.getElementById("countdown").textContent =
-        `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+        `${h}:${m}:${s}`;
     }
-
+  
     setInterval(updateCountdown, 1000);
     updateCountdown();
   </script>
+
 </body>
 </html>
