@@ -2,37 +2,59 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>W1 — 졸업프로젝트</title>
+  <title>W1 — 졸업프로젝트 장혁준</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    html, body {
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 18px;
-      line-height: 1.4;
+      font-size: 50px;   /* 홈과 동일 */
+      line-height: 1;
+      font-weight: normal;
       color: #000;
-      padding: 10px;
+      padding: 20px;     /* 상하좌우 20px 동일 */
     }
+
     .wrap {
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 10px;
       align-items: start;
     }
-    .side h1, .side h2, .side p {
-      margin: 0 0 5px 0;
+
+    /* 좌측: 이름/소개 */
+    .side h1,
+    .side h2 {
+      margin: 0 0 20px 0;
       font-weight: normal;
-      font-size: 15px;
+      font-size: 50px;   /* 홈과 동일 */
     }
-    .side h1 a, .side h2 {
+
+    .side h1 a,
+    .side h2 {
       text-decoration: underline;
-    }
-    .side a {
       color: #000;
-      text-decoration: none;
     }
+
     .side a:hover { color: #808080; }
-    main {
-      font-size: 15px;
+
+    /* 우측: 주차별 내용 */
+    .content {
+      display: block;
+    }
+    .content p {
+      margin: 0 0 20px 0;
+    }
+    .muted {
+      color: #cccccc;   /* 연하게 */
+    }
+
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -41,4 +63,14 @@
     <!-- 좌측: 고정 정보 -->
     <aside class="side">
       <h1><a href="index.html">졸업프로젝트</a></h1>
-      <h2>장혁준</h
+      <h2>장혁준</h2>
+    </aside>
+
+    <!-- 우측: W1 전용 내용 -->
+    <main class="content">
+      <p>W1/2025.9.2</p>
+      <p class="muted">(수업 당일 저녁중으로 업로드해둘게요...)</p>
+    </main>
+  </div>
+</body>
+</html>
