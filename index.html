@@ -109,7 +109,15 @@
       .statement { max-width: 100%; } /* 작은 화면에서는 제한 해제 */
     }
 
-  
+    .insta-text {
+      color: rgba(0,0,0,0.3);   /* 기본: 흐리게 */
+      text-decoration: none;    /* 밑줄 제거 */
+      transition: color 0.2s;   /* 부드럽게 색 변환 */
+    }
+    
+    .insta-text:hover {
+      color: rgb(0,0,0);        /* 마우스 올리면 진하게 */
+    }
   </style>
 </head>
 <body>
@@ -119,7 +127,7 @@
       <h1><a href="index.html">졸업프로젝트</a></h1>
       <h2>장혁준</h2>
       <p><a href="mailto:imjanghyukjun@gmail.com"><span style="color: rgb(0,0,0,0.3);">imjanghyukjun(gmail.com)</span></a></p>
-      <p><a href="https://instagram.com/janghyukjun_/" target="_blank"><span style="color: rgb(0,0,0,0.3);">janghyukjun_(instagram)</span></a></p>
+      <a href="https://instagram.com/janghyukjun_/" target="_blank" class="insta-text">janghyukjun_</a>
       <p><span style="color: rgb(0,0,0,0.3);">010-3315-2384</span></p>
     </aside>
 
