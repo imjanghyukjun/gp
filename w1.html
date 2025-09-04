@@ -9,10 +9,34 @@
       margin: 0;
       padding: 0;
       background: #fff;
-      font-family: sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
     }
     header {
-      padding: 20px;
+      padding: 30px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+    header h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+    header h2 {
+      font-size: 20px;
+      margin: 5px 0 0 0;
+      font-weight: normal;
+    }
+    header p {
+      font-size: 14px;
+      margin: 5px 0 0 0;
+      color: #444;
+    }
+    main {
+      margin-top: 120px; /* header 공간 확보 */
     }
     .slider-section {
       height: 100vh;
@@ -57,58 +81,60 @@
 </head>
 <body>
   <header>
-    <h2>졸업프로젝트</h2>
-    <h3>장혁준</h3>
+    <h1><a href="index.html" style="text-decoration:none; color:#000;">졸업프로젝트</a></h1>
+    <h2>장혁준</h2>
     <p>W1/2025.9.2</p>
   </header>
 
-  <!-- 첫 번째 슬라이드 (090212 ~ 090222) -->
-  <section class="slider-section">
-    <div class="slider" id="slider1">
-      <button class="nav-btn prev" onclick="prevSlide(1)">&#10094;</button>
-      <img src="images/090212.jpg" class="active">
-      <img src="images/090213.jpg">
-      <img src="images/090214.jpg">
-      <img src="images/090215.jpg">
-      <img src="images/090216.jpg">
-      <img src="images/090217.jpg">
-      <img src="images/090218.jpg">
-      <img src="images/090219.jpg">
-      <img src="images/090220.jpg">
-      <img src="images/090221.jpg">
-      <img src="images/090222.jpg">
-      <button class="nav-btn next" onclick="nextSlide(1)">&#10095;</button>
-    </div>
-  </section>
+  <main>
+    <!-- 첫 번째 슬라이드 (b1~b9) -->
+    <section class="slider-section">
+      <div class="slider" id="slider1">
+        <button class="nav-btn prev" onclick="prevSlide(1)">&#10094;</button>
+        <img src="images/b1.jpg" class="active">
+        <img src="images/b2.jpg">
+        <img src="images/b3.jpg">
+        <img src="images/b4.jpg">
+        <img src="images/b5.jpg">
+        <img src="images/b6.jpg">
+        <img src="images/b7.jpg">
+        <img src="images/b8.jpg">
+        <img src="images/b9.jpg">
+        <button class="nav-btn next" onclick="nextSlide(1)">&#10095;</button>
+      </div>
+    </section>
 
-  <!-- 두 번째 슬라이드 (보1 ~ 보9) -->
-  <section class="slider-section">
-    <div class="slider" id="slider2">
-      <button class="nav-btn prev" onclick="prevSlide(2)">&#10094;</button>
-      <img src="images/보1.jpg" class="active">
-      <img src="images/보2.jpg">
-      <img src="images/보3.jpg">
-      <img src="images/보4.jpg">
-      <img src="images/보5.jpg">
-      <img src="images/보6.jpg">
-      <img src="images/보7.jpg">
-      <img src="images/보8.jpg">
-      <img src="images/보9.jpg">
-      <button class="nav-btn next" onclick="nextSlide(2)">&#10095;</button>
-    </div>
-  </section>
+    <!-- 두 번째 슬라이드 (090212~090222) -->
+    <section class="slider-section">
+      <div class="slider" id="slider2">
+        <button class="nav-btn prev" onclick="prevSlide(2)">&#10094;</button>
+        <img src="images/090212.jpg" class="active">
+        <img src="images/090213.jpg">
+        <img src="images/090214.jpg">
+        <img src="images/090215.jpg">
+        <img src="images/090216.jpg">
+        <img src="images/090217.jpg">
+        <img src="images/090218.jpg">
+        <img src="images/090219.jpg">
+        <img src="images/090220.jpg">
+        <img src="images/090221.jpg">
+        <img src="images/090222.jpg">
+        <button class="nav-btn next" onclick="nextSlide(2)">&#10095;</button>
+      </div>
+    </section>
 
-  <!-- 세 번째 슬라이드 (만1 ~ 만4) -->
-  <section class="slider-section">
-    <div class="slider" id="slider3">
-      <button class="nav-btn prev" onclick="prevSlide(3)">&#10094;</button>
-      <img src="images/만1.jpg" class="active">
-      <img src="images/만2.jpg">
-      <img src="images/만3.jpg">
-      <img src="images/만4.jpg">
-      <button class="nav-btn next" onclick="nextSlide(3)">&#10095;</button>
-    </div>
-  </section>
+    <!-- 세 번째 슬라이드 (m1~m4) -->
+    <section class="slider-section">
+      <div class="slider" id="slider3">
+        <button class="nav-btn prev" onclick="prevSlide(3)">&#10094;</button>
+        <img src="images/m1.jpg" class="active">
+        <img src="images/m2.jpg">
+        <img src="images/m3.jpg">
+        <img src="images/m4.jpg">
+        <button class="nav-btn next" onclick="nextSlide(3)">&#10095;</button>
+      </div>
+    </section>
+  </main>
 
   <script>
     // 각 슬라이드 그룹별 index 저장
