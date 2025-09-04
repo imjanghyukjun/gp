@@ -9,50 +9,61 @@
       background: #fff;
       margin: 0;
       padding: 0;
+      height: 100%;
     }
     body {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 50px;   /* 홈과 동일 */
+      font-size: 50px;
       line-height: 1;
       font-weight: normal;
       color: #000;
-      padding: 20px;     /* 상하좌우 20px 동일 */
+      padding: 20px;
+      box-sizing: border-box;
     }
 
+    /* 레이아웃 */
     .wrap {
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 10px;
+      grid-template-columns: 1fr 2fr; /* 좌측 고정 / 본문 */
+      gap: 30px;
       align-items: start;
     }
 
-    /* 좌측: 이름/소개 */
+    /* 좌측 */
     .side h1,
     .side h2 {
-      margin: 0 0 20px 0;
+      margin: 0 0 5px 0;
       font-weight: normal;
-      font-size: 50px;   /* 홈과 동일 */
-    }
-
-    .side h1 a,
-    .side h2 {
+      font-size: 15px;
       text-decoration: underline;
-      color: #000;
     }
+    .side h2 { margin-bottom: 20px; }
 
+    .side a {
+      color: #000;
+      text-decoration: none;
+    }
     .side a:hover { color: #808080; }
 
-    /* 우측: 주차별 내용 */
+    /* 본문 */
     .content {
-      display: block;
-    }
-    .content p {
-      margin: 0 0 20px 0;
-    }
-    .muted {
-      color: #cccccc;   /* 연하게 */
+      font-size: 15px;
+      line-height: 1.4;
+      text-align: left;
     }
 
+    /* 하단 고정 네비게이션 바 */
+    .nav-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: #000;
+      z-index: 100;
+    }
+
+    /* 반응형 */
     @media (max-width: 900px) {
       .wrap { grid-template-columns: 1fr; }
     }
@@ -60,17 +71,19 @@
 </head>
 <body>
   <div class="wrap">
-    <!-- 좌측: 고정 정보 -->
+    <!-- 좌측 -->
     <aside class="side">
       <h1><a href="index.html">졸업프로젝트</a></h1>
       <h2>장혁준</h2>
     </aside>
 
-    <!-- 우측: W1 전용 내용 -->
+    <!-- 본문 (여기에 이미지 / 텍스트 추가 가능) -->
     <main class="content">
-      <p>W1/2025.9.2</p>
-      <p class="muted">(수업 당일 저녁중으로 업로드해둘게요...)</p>
+      <p>이곳에 이미지나 텍스트를 넣으세요.</p>
     </main>
   </div>
+
+  <!-- 하단 블랙 바 -->
+  <div class="nav-bar"></div>
 </body>
 </html>
