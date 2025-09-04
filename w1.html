@@ -9,156 +9,130 @@
       margin: 0;
       padding: 0;
       background: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 15px;
-      line-height: 1.4;
-      color: #000;
+      font-family: sans-serif;
     }
-
-    .wrap {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      gap: 40px;
-      align-items: start;
+    header {
       padding: 20px;
     }
-
-    /* 좌측 고정 정보 */
-    .side h1, .side h2, .side p {
-      margin: 0 0 5px 0;
-      font-weight: normal;
-    }
-    .side h2 { margin-bottom: 20px; }
-    .side h1 a, .side h2 { text-decoration: underline; }
-    .side a { color: #000; text-decoration: none; }
-    .side a:hover { color: #808080; }
-
-    /* 메인 콘텐츠 */
-    .content {
+    .slider-section {
+      height: 100vh;
       display: flex;
+      align-items: center;
+      justify-content: center;
       flex-direction: column;
-      gap: 100px; /* 슬라이드 블록 간 간격 */
-      width: 100%;
-    }
-
-    /* 슬라이더 공통 */
-    .slider-container {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-      overflow: hidden;
     }
     .slider {
+      position: relative;
+      width: 80%;
+      max-width: 900px;
+      height: 80%;
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
-    .slide {
-      min-width: 100%;
-      box-sizing: border-box;
-      text-align: center;
-    }
-    .slide img {
+    .slider img {
       max-width: 100%;
-      max-height: 90vh;
+      max-height: 100%;
       object-fit: contain;
+      display: none;
     }
-
-    /* 버튼 */
-    .prev, .next {
+    .slider img.active {
+      display: block;
+    }
+    .nav-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       background: rgba(0,0,0,0.5);
-      color: #fff;
+      color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 10px;
       cursor: pointer;
       font-size: 20px;
-      z-index: 10;
     }
     .prev { left: 10px; }
     .next { right: 10px; }
-    .prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <!-- 좌측 고정 정보 -->
-    <aside class="side">
-      <h1><a href="index.html">졸업프로젝트</a></h1>
-      <h2>장혁준</h2>
-      <p>W1/2025.9.2</p>
-    </aside>
+  <header>
+    <h2>졸업프로젝트</h2>
+    <h3>장혁준</h3>
+    <p>W1/2025.9.2</p>
+  </header>
 
-    <!-- 우측 콘텐츠 (위/아래 3개 슬라이드) -->
-    <div class="content">
-
-      <!-- 첫 번째 슬라이드: 보1~보9 -->
-      <div class="slider-container">
-        <div class="slider" id="slider1">
-          <div class="slide"><img src="gp/images/보1.jpg" alt="보1"></div>
-          <div class="slide"><img src="gp/images/보2.jpg" alt="보2"></div>
-          <div class="slide"><img src="gp/images/보3.jpg" alt="보3"></div>
-          <div class="slide"><img src="gp/images/보4.jpg" alt="보4"></div>
-          <div class="slide"><img src="gp/images/보5.jpg" alt="보5"></div>
-          <div class="slide"><img src="gp/images/보6.jpg" alt="보6"></div>
-          <div class="slide"><img src="gp/images/보7.jpg" alt="보7"></div>
-          <div class="slide"><img src="gp/images/보8.jpg" alt="보8"></div>
-          <div class="slide"><img src="gp/images/보9.jpg" alt="보9"></div>
-        </div>
-        <button class="prev" onclick="moveSlide('slider1', -1)">&#10094;</button>
-        <button class="next" onclick="moveSlide('slider1', 1)">&#10095;</button>
-      </div>
-
-      <!-- 두 번째 슬라이드: 090212~090222 -->
-      <div class="slider-container">
-        <div class="slider" id="slider2">
-          <div class="slide"><img src="gp/images/090212.jpg" alt="090212"></div>
-          <div class="slide"><img src="gp/images/090213.jpg" alt="090213"></div>
-          <div class="slide"><img src="gp/images/090214.jpg" alt="090214"></div>
-          <div class="slide"><img src="gp/images/090215.jpg" alt="090215"></div>
-          <div class="slide"><img src="gp/images/090216.jpg" alt="090216"></div>
-          <div class="slide"><img src="gp/images/090217.jpg" alt="090217"></div>
-          <div class="slide"><img src="gp/images/090218.jpg" alt="090218"></div>
-          <div class="slide"><img src="gp/images/090219.jpg" alt="090219"></div>
-          <div class="slide"><img src="gp/images/090220.jpg" alt="090220"></div>
-          <div class="slide"><img src="gp/images/090221.jpg" alt="090221"></div>
-          <div class="slide"><img src="gp/images/090222.jpg" alt="090222"></div>
-        </div>
-        <button class="prev" onclick="moveSlide('slider2', -1)">&#10094;</button>
-        <button class="next" onclick="moveSlide('slider2', 1)">&#10095;</button>
-      </div>
-
-      <!-- 세 번째 슬라이드: 만1~만4 -->
-      <div class="slider-container">
-        <div class="slider" id="slider3">
-          <div class="slide"><img src="gp/images/만1.jpg" alt="만1"></div>
-          <div class="slide"><img src="gp/images/만2.jpg" alt="만2"></div>
-          <div class="slide"><img src="gp/images/만3.jpg" alt="만3"></div>
-          <div class="slide"><img src="gp/images/만4.jpg" alt="만4"></div>
-        </div>
-        <button class="prev" onclick="moveSlide('slider3', -1)">&#10094;</button>
-        <button class="next" onclick="moveSlide('slider3', 1)">&#10095;</button>
-      </div>
-
+  <!-- 첫 번째 슬라이드 (090212 ~ 090222) -->
+  <section class="slider-section">
+    <div class="slider" id="slider1">
+      <button class="nav-btn prev" onclick="prevSlide(1)">&#10094;</button>
+      <img src="images/090212.jpg" class="active">
+      <img src="images/090213.jpg">
+      <img src="images/090214.jpg">
+      <img src="images/090215.jpg">
+      <img src="images/090216.jpg">
+      <img src="images/090217.jpg">
+      <img src="images/090218.jpg">
+      <img src="images/090219.jpg">
+      <img src="images/090220.jpg">
+      <img src="images/090221.jpg">
+      <img src="images/090222.jpg">
+      <button class="nav-btn next" onclick="nextSlide(1)">&#10095;</button>
     </div>
-  </div>
+  </section>
+
+  <!-- 두 번째 슬라이드 (보1 ~ 보9) -->
+  <section class="slider-section">
+    <div class="slider" id="slider2">
+      <button class="nav-btn prev" onclick="prevSlide(2)">&#10094;</button>
+      <img src="images/보1.jpg" class="active">
+      <img src="images/보2.jpg">
+      <img src="images/보3.jpg">
+      <img src="images/보4.jpg">
+      <img src="images/보5.jpg">
+      <img src="images/보6.jpg">
+      <img src="images/보7.jpg">
+      <img src="images/보8.jpg">
+      <img src="images/보9.jpg">
+      <button class="nav-btn next" onclick="nextSlide(2)">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- 세 번째 슬라이드 (만1 ~ 만4) -->
+  <section class="slider-section">
+    <div class="slider" id="slider3">
+      <button class="nav-btn prev" onclick="prevSlide(3)">&#10094;</button>
+      <img src="images/만1.jpg" class="active">
+      <img src="images/만2.jpg">
+      <img src="images/만3.jpg">
+      <img src="images/만4.jpg">
+      <button class="nav-btn next" onclick="nextSlide(3)">&#10095;</button>
+    </div>
+  </section>
 
   <script>
-    // 여러 개 슬라이더 관리
-    const positions = {};
+    // 각 슬라이드 그룹별 index 저장
+    const slideIndexes = {1:0, 2:0, 3:0};
 
-    function moveSlide(id, direction) {
-      const slider = document.getElementById(id);
-      const slides = slider.querySelectorAll('.slide');
-      if (!(id in positions)) positions[id] = 0;
+    function showSlide(sliderId, index) {
+      const slider = document.getElementById("slider"+sliderId);
+      const slides = slider.getElementsByTagName("img");
+      if (index >= slides.length) slideIndexes[sliderId] = 0;
+      if (index < 0) slideIndexes[sliderId] = slides.length-1;
+      for (let i=0; i<slides.length; i++) {
+        slides[i].classList.remove("active");
+      }
+      slides[slideIndexes[sliderId]].classList.add("active");
+    }
 
-      positions[id] += direction;
-      if (positions[id] < 0) positions[id] = slides.length - 1;
-      if (positions[id] >= slides.length) positions[id] = 0;
+    function nextSlide(sliderId) {
+      slideIndexes[sliderId]++;
+      showSlide(sliderId, slideIndexes[sliderId]);
+    }
 
-      slider.style.transform = `translateX(-${positions[id] * 100}%)`;
+    function prevSlide(sliderId) {
+      slideIndexes[sliderId]--;
+      showSlide(sliderId, slideIndexes[sliderId]);
     }
   </script>
 </body>
