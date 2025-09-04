@@ -2,75 +2,96 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>W1/2025.9.2 — 졸업프로젝트 장혁준</title>
+  <title>W1 — 졸업프로젝트 / 장혁준</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     html, body {
+      background: #fff;
       margin: 0;
       padding: 0;
-      background: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #000;
-      height: 100%;
-      overflow: hidden; /* 스크롤 막음 */
     }
     body {
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 50px;
-      line-height: 1.2;
+      line-height: 1;
+      font-weight: normal;
+      color: #000;
       padding: 20px;
       box-sizing: border-box;
     }
 
-    /* 상단 정보 */
+    /* 레이아웃 */
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 40px;
+      padding-bottom: 220px;
+      align-items: start;
+    }
+
+    /* 좌측 정보 */
     .side h1,
-    .side h2 {
+    .side h2,
+    .side p {
       margin: 0 0 5px 0;
       font-weight: normal;
       font-size: 15px;
     }
-    .side h1 a {
-      text-decoration: underline;
+
+    .side h2 { margin-bottom: 20px; }
+
+    .side h1 a,
+    .side h2 { text-decoration: underline; }
+
+    .side a {
       color: #000;
+      text-decoration: none;
     }
-    .side h1 a:hover { color: #808080; }
+    .side a:hover { color: #808080; }
 
-    /* 제목 */
-    .title {
-      margin: 40px 0 20px 0;
-      font-size: 30px;
-      font-weight: normal;
-    }
-
-    /* 슬라이드 영역 */
-    .slideshow {
+    /* 슬라이더 */
+    main {
       position: relative;
-      width: 100%;
-      height: calc(100vh - 200px - 140px); /* 화면 높이 - 블랙바 - 여백(제목/상단) */
       overflow: hidden;
     }
-    .slideshow img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* 이미지 비율 유지 */
-      display: none;
+
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease;
     }
-    .slideshow img.active {
+
+    .slide {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide img {
+      max-width: 100%;
+      height: auto;
       display: block;
     }
 
-    /* 클릭 영역 */
-    .slideshow .left,
-    .slideshow .right {
+    /* 화살표 버튼 */
+    .arrow {
       position: absolute;
-      top: 0;
-      width: 50%;
-      height: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      font-size: 24px;
+      padding: 10px 15px;
       cursor: pointer;
+      z-index: 10;
     }
-    .slideshow .left { left: 0; }
-    .slideshow .right { right: 0; }
+    .arrow:hover { background: rgba(0,0,0,0.7); }
 
-    /* 하단 블랙바 */
+    .arrow.left { left: 10px; }
+    .arrow.right { right: 10px; }
+
+    /* 하단 네비게이션 바 */
     .nav-bar {
       position: fixed;
       bottom: 0;
@@ -80,52 +101,58 @@
       background: #000;
       z-index: 100;
     }
+
+    /* 반응형 */
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <!-- 좌측 상단 -->
-  <div class="side">
-    <h1><a href="index.html">졸업프로젝트</a></h1>
-    <h2>장혁준</h2>
+  <div class="wrap">
+    <!-- 좌측: 정보 -->
+    <aside class="side">
+      <h1><a href="index.html">졸업프로젝트</a></h1>
+      <h2>장혁준</h2>
+      <p>W1/2025.9.2</p>
+    </aside>
+
+    <!-- 본문: 이미지 슬라이드 -->
+    <main>
+      <div class="slider" id="slider">
+        <div class="slide"><img src="090212.jpg" alt="090212" /></div>
+        <div class="slide"><img src="090213.jpg" alt="090213" /></div>
+        <div class="slide"><img src="090214.jpg" alt="090214" /></div>
+        <div class="slide"><img src="090215.jpg" alt="090215" /></div>
+        <div class="slide"><img src="090216.jpg" alt="090216" /></div>
+        <div class="slide"><img src="090217.jpg" alt="090217" /></div>
+        <div class="slide"><img src="090218.jpg" alt="090218" /></div>
+        <div class="slide"><img src="090219.jpg" alt="090219" /></div>
+        <div class="slide"><img src="090220.jpg" alt="090220" /></div>
+        <div class="slide"><img src="090221.jpg" alt="090221" /></div>
+        <div class="slide"><img src="090222.jpg" alt="090222" /></div>
+      </div>
+      <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
+    </main>
   </div>
 
-  <!-- 제목 -->
-  <div class="title">W1/2025.9.2</div>
-
-  <!-- 슬라이드 -->
-  <div class="slideshow">
-    <img src="images/090212.jpg" class="active" alt="사진1" />
-    <img src="images/090213.jpg" alt="사진2" />
-    <img src="images/090214.jpg" alt="사진3" />
-
-    <div class="left"></div>
-    <div class="right"></div>
-  </div>
-
-  <!-- 하단 블랙바 -->
   <div class="nav-bar"></div>
 
   <script>
-    const slides = document.querySelectorAll(".slideshow img");
-    const left = document.querySelector(".slideshow .left");
-    const right = document.querySelector(".slideshow .right");
-    let current = 0;
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
 
-    function showSlide(index) {
-      slides.forEach((img, i) => {
-        img.classList.toggle("active", i === index);
-      });
+    function moveSlide(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) {
+        currentIndex = slides.length - 1;
+      } else if (currentIndex >= slides.length) {
+        currentIndex = 0;
+      }
+      slider.style.transform = `translateX(${-currentIndex * 100}%)`;
     }
-
-    right.addEventListener("click", () => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    });
-
-    left.addEventListener("click", () => {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
-    });
   </script>
 </body>
 </html>
