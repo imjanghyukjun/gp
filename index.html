@@ -146,11 +146,39 @@
       <div class="item"><a href="w4.html">W4/2025.9.23</a></div>
       <div class="item"><a href="w5.html">W5/2025.9.30</a></div>
       <div class="item"><span class="muted">W...</span></div>
-      <div class="item"><a href="final.html">🪺/2025.12.1</a></div>
+      <div class="item"><span id="countdown">🪺/2025.12.1</span></div>
     </main>
   </div>
 
   <!-- 하단 고정 네비게이션 바 -->
   <div class="nav-bar"></div>
-</body>
-</html>
+  
+    <script>
+      const deadline = new Date("2025-12-01T00:00:00");
+  
+      function updateCountdown() {
+        const now = new Date();
+        const diff = deadline - now;
+  
+        if (diff <= 0) {
+          document.getElementById("countdown").textContent = "🪺 졸업전시 시작!";
+          return;
+        }
+  
+        const totalHours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  
+        const h = String(totalHours).padStart(2, "0");
+        const m = String(minutes).padStart(2, "0");
+        const s = String(seconds).padStart(2, "0");
+  
+        document.getElementById("countdown").textContent =
+          `🪺 ${h}:${m}:${s}`;
+      }
+  
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+  </body>
+  </html>
