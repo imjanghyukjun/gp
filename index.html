@@ -26,6 +26,11 @@
     a:hover {
       color: gray;
     }
+    .disabled {
+      color: #cccccc; /* 블랙 20% 정도 밝기의 회색 */
+      pointer-events: none; /* 클릭 막기 */
+      cursor: default;
+    }
   </style>
 </head>
 <body>
@@ -37,6 +42,6 @@
   <div class="item"><a href="w3.html">W3 / 2025.9.16</a></div>
   <div class="item"><a href="w4.html">W4 / 2025.9.23</a></div>
   <div class="item"><a href="w5.html">W5 / 2025.9.30</a></div>
-  <div class="item"><a href="#">W...</a></div>
+  <div class="item"><span class="disabled">W...</span></div>
 </body>
 </html>
