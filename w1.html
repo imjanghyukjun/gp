@@ -52,11 +52,13 @@
     }
     .slide {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: auto;
-      max-height: 80vh;
-      margin: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* 중앙 정렬 */
+      max-height: calc(100vh - 200px); /* 블랙바 높이 제외 */
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
       display: none;
     }
     .slide.active {
