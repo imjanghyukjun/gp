@@ -52,9 +52,10 @@
 
     /* 우측 큰 텍스트 */
     .text-box {
-      font-size: 200pt;
-      font-weight: light;
-      line-height: 1;
+      font-size: 100pt; /* 원래 200pt → 조금 줄임 */
+      font-weight: lighter;
+      line-height: 1.2;
+      word-break: keep-all;
     }
 
     /* 하단 고정 네비게이션 바 */
@@ -82,13 +83,38 @@
       <p>2025.12.1</p>
     </aside>
 
-    <!-- 우측: 큰 텍스트 -->
-    <div class="text-box">
-      25.9.30.
+    <!-- 우측: 큰 카운트다운 -->
+    <div class="text-box" id="countdown">
+      계산 중...
     </div>
   </div>
 
   <!-- 하단 고정 네비게이션 바 -->
   <div class="nav-bar"></div>
+
+  <script>
+    const deadline = new Date("2025-12-01T00:00:00");
+    function updateCountdown() {
+      const now = new Date();
+      const diff = deadline - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").textContent = "졸업전시 시작!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      // 우측에 크게 표시 (일, 시간, 분, 초)
+      document.getElementById("countdown").textContent =
+        `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
