@@ -13,14 +13,14 @@
       line-height: 1.6;
     }
 
-    /* === 3열 그리드 레이아웃 === */
+    /* === 전체 레이아웃 === */
     .container {
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1fr 3fr; /* 좌측 1, 우측 3 */
       min-height: 100vh;
     }
 
-    /* 좌측 1열 (제목 영역) */
+    /* 좌측 상단부 */
     .left-column {
       padding: 40px 30px;
       border-right: 1px solid #ddd;
@@ -41,14 +41,15 @@
       color: #444;
     }
 
-    /* 우측 2열 (슬라이드) */
+    /* 우측 2열 */
     .right-column {
       padding: 40px 30px;
       overflow-y: auto;
     }
 
+    /* 슬라이드 영역 */
     .slider-section {
-      margin-bottom: 2em; /* 본문 행간만큼 간격 */
+      margin-bottom: 1.6em; /* 본문 행간과 동일 */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -56,11 +57,12 @@
     .slider {
       position: relative;
       width: 100%;
-      max-width: 900px;
+      max-width: 1000px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      background: #000;
     }
     .slider img {
       max-width: 100%;
@@ -85,7 +87,7 @@
     .prev { left: 10px; }
     .next { right: 10px; }
 
-    /* 하단 고정 블랙바 */
+    /* 하단 블랙바 */
     .nav-bar {
       position: fixed;
       bottom: 0;
@@ -158,11 +160,10 @@
     </div>
   </div>
 
-  <!-- 하단 고정 블랙바 -->
+  <!-- 하단 블랙바 -->
   <div class="nav-bar"></div>
 
   <script>
-    // 각 슬라이드 그룹별 index 저장
     const slideIndexes = {1:0, 2:0, 3:0};
 
     function showSlide(sliderId, index) {
@@ -188,4 +189,3 @@
   </script>
 </body>
 </html>
-
