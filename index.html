@@ -1,49 +1,100 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>졸업프로젝트</title>
+  <meta charset="UTF-8" />
+  <title>졸업프로젝트 — 장혁준</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    /* 전역 설정 — 요청하신 규칙: 여백 20px, 폰트 28px, 행간 1, normal, 배경 white */
+    html, body {
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 40px;
+      font-size: 28px;
       line-height: 1;
-      margin: 100px;
-      background: white;
-      color: black;
       font-weight: normal;
+      color: #000;
+      padding: 20px;
     }
-    h1, h2 {
-      margin: 0 0 10px 0;
-      font-size: 40px;
+
+    /* 레이아웃: 좌측 정보 / 우측 리스트 */
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;            /* 좌우 간격도 20px */
+      align-items: start;
+    }
+
+    /* 좌측: 이름/소개/콘택트 */
+    .side h1,
+    .side h2,
+    .side p {
+      margin: 0 0 10px 0;   /* 줄 간격은 최소로 */
       font-weight: normal;
+      font-size: 28px;
+    }
+
+    .side a {
+      color: #000;
+      text-decoration: none;
+    }
+    .side a:hover { color: #808080; }
+
+    /* 우측: 프로젝트 리스트 */
+    .list {
+      display: block;
     }
     .item {
-      margin-bottom: 8px;
+      margin: 0 0 8px 0;    /* 리스트 줄 간격 */
     }
-    a {
+    .item a {
+      color: #000;
       text-decoration: none;
-      color: black;
+      display: inline-block;
     }
-    a:hover {
-      color: gray;
+    .item a:hover { color: #808080; }
+
+    /* 메타(연도/태그)는 같은 줄에 얇게 구분용 점 */
+    .meta {
+      margin-left: 12px;
+      opacity: 0.6;         /* 살짝 옅게 */
     }
-    .disabled {
-      color: #cccccc; /* 블랙 20% 정도 회색 */
+
+    /* “예정” 항목 표기 */
+    .muted {
+      color: #cccccc;       /* 블랙 20% 정도의 밝기 */
       pointer-events: none;
       cursor: default;
+    }
+
+    /* 반응형: 좁은 화면에서는 한 열로 정렬 */
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <h1>졸업프로젝트</h1>
-  <h2>장혁준</h2>
+  <div class="wrap">
+    <!-- 좌측: 고정 정보 -->
+    <aside class="side">
+      <h1>졸업프로젝트</h1>
+      <h2>장혁준</h2>
+      <p><a href="mailto:imjanghyukjun@gmail.com">imjanghyukjun@gmail.com</a></p>
+      <p>010-3315-2384</p>
+    </aside>
 
-  <div class="item"><a href="w1.html">W1 / 2025.9.2</a></div>
-  <div class="item"><a href="w2.html">W2 / 2025.9.9</a></div>
-  <div class="item"><a href="w3.html">W3 / 2025.9.16</a></div>
-  <div class="item"><a href="w4.html">W4 / 2025.9.23</a></div>
-  <div class="item"><a href="w5.html">W5 / 2025.9.30</a></div>
-  <div class="item"><span class="disabled">W...</span></div>
+    <!-- 우측: 프로젝트/주차 리스트 (필요에 맞게 수정) -->
+    <main class="list">
+      <div class="item"><a href="w1.html">W1 / 2025.9.2</a><span class="meta">· Week 01</span></div>
+      <div class="item"><a href="w2.html">W2 / 2025.9.9</a><span class="meta">· Week 02</span></div>
+      <div class="item"><a href="w3.html">W3 / 2025.9.16</a><span class="meta">· Week 03</span></div>
+      <div class="item"><a href="w4.html">W4 / 2025.9.23</a><span class="meta">· Week 04</span></div>
+      <div class="item"><a href="w5.html">W5 / 2025.9.30</a><span class="meta">· Week 05</span></div>
+      <div class="item"><span class="muted">W...</span></div>
+    </main>
+  </div>
 </body>
 </html>
