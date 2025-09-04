@@ -147,7 +147,7 @@
       <div class="item"><a href="w4.html">W4/2025.9.23</a></div>
       <div class="item"><a href="w5.html">W5/2025.9.30</a></div>
       <div class="item"><span class="muted">···</span></div>
-      <div class="item"><span class="muted" id="dday">2025.12.1</span></div>
+      <div class="item"><span class="muted">2025.12.1</span></div>
     </main>
   </div>
 
@@ -181,20 +181,6 @@
       setInterval(updateCountdown, 1000);
       updateCountdown();
     </script>
-    <script>
-    const targetDate = new Date("2025-12-01T00:00:00");
-    function updateDday() {
-      const now = new Date();
-      const diff = targetDate - now;
-      if (diff <= 0) {
-        document.getElementById("dday").textContent = "(D-Day) 2025.12.1";
-        return;
-      }
-      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-      document.getElementById("dday").textContent = `(D-${days}) 2025.12.1`;
-    }
-    updateDday();
-    setInterval(updateDday, 1000 * 60 * 60);
-  </script>
+  
   </body>
   </html>
