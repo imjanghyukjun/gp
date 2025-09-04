@@ -19,11 +19,11 @@
       padding: 20px;
     }
 
-    /* 레이아웃: 좌측 정보 / 가운데 설명 / 우측 리스트 */
+    /* 레이아웃: 좌측 정보 / 가운데 작업설명 / 우측 리스트 */
     .wrap {
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
-      gap: 30px;
+      gap: 40px; /* W와 설명 사이 간격 크게 */
       align-items: start;
     }
 
@@ -35,13 +35,16 @@
       font-weight: normal;
       font-size: 15px;
     }
+
     .side h2 {
       margin-bottom: 20px;
     }
+
     .side h1 a,
     .side h2 {
       text-decoration: underline;
     }
+
     .side a {
       color: #000;
       text-decoration: none;
@@ -49,20 +52,24 @@
     .side a:hover { color: #808080; }
 
     /* 가운데: 작업 설명 */
-    .statement p {
-      margin: 0 0 1em 0;
-      text-align: left;
+    .statement {
+      max-width: 50%;  /* 폭 절반으로 제한 */
+      line-height: 1.6;
+      text-align: left; /* 좌측 정렬 */
       font-size: 15px;
-      font-weight: normal;
     }
+
+    .statement p {
+      margin: 0 0 0 0; /* 문단 간격 없음 */
+    }
+
     .statement p + p {
-      text-indent: 10ch; /* 두 번째 문단만 들여쓰기 */
+      text-indent: 3ch; /* 두 번째 문단 들여쓰기 */
     }
 
     /* 우측: 프로젝트 리스트 */
     .list {
       display: block;
-      font-size: 50px;
     }
     .item {
       margin: 0 0 8px 0;
@@ -73,6 +80,7 @@
       display: inline-block;
     }
     .item a:hover { color: #808080; }
+
     .muted {
       color: #cccccc;
       pointer-events: none;
@@ -81,10 +89,8 @@
 
     /* 반응형 */
     @media (max-width: 900px) {
-      .wrap { 
-        grid-template-columns: 1fr; 
-        row-gap: 45px; /* 좁아졌을 때 간격 */
-      }
+      .wrap { grid-template-columns: 1fr; }
+      .statement { max-width: 100%; } /* 작은 화면에서는 제한 해제 */
     }
   </style>
 </head>
@@ -99,16 +105,19 @@
     </aside>
 
     <!-- 가운데: 작업 설명 -->
-    <section class="statement">
+    <div class="statement">
       <p>
         문자 언어의 한계를 절감하고, 끊임없이 문자로 된 설명을 요구하는 사회에 큰 피로를 느껴온 작업자는
-        필리프 자코테가 확정적 언어를 경계하며 자신만의 언어로 '시'를 택했듯, 본인의 언어로 '이미지'를 택하여 말하고자 한다.
-        이번 작업은 24년 겨울에 촬영한 랭스 시리즈가 담긴다. 무(無)에 가까웠던 2024년 겨울 랭스의 풍경.
-        그 단순한 풍경이 나를 압도했던 경험은 나로 하여금 풍경(외양–상–이미지)이 고유한 언어를 지니며
-        언제나 자신만의 방식으로 말을 건네고 있다는 사실을, 그리고 그 언어가 어떤 언어보다도 검소하기에
-        가장 적절한 설명을 제공할 수 있음을 믿게 했다. 이를 중심으로, 이미지가 가진 고유한 언어와 그 힘을 드러내는 시도이다.
+        필리프 자코테가 확정적 언어를 경계하며 자신만의 언어로 '시'를 택해 풍경을 묘사했듯,
+        본인의 언어로 '이미지'를 택하여 말하고자 한다. 이번 작업은 24년 겨울에 촬영한 랭스 시리즈가 담긴다.
       </p>
-    </section>
+      <p>
+        무(無)에 가까웠던 2024년 겨울 랭스의 풍경. 그 단순한 풍경이 나를 압도했던 경험은
+        나로 하여금 풍경(외양–상–이미지)이 고유한 언어를 지니며 언제나 자신만의 방식으로 말을 건네고 있다는 사실을,
+        그리고 그 언어가 어떤 언어보다도 검소하기에 가장 적절한 설명을 제공할 수 있음을 믿게 했다.
+        이를 중심으로, 이미지가 가진 고유한 언어와 그 힘을 드러내는 시도이다.
+      </p>
+    </div>
 
     <!-- 우측: 프로젝트/주차 리스트 -->
     <main class="list">
