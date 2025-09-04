@@ -19,10 +19,10 @@
       padding: 20px;
     }
 
-    /* 레이아웃: 좌측 정보 / 가운데 설명 */
+    /* 레이아웃: 좌측 정보 / 가운데 설명 / 우측 리스트 */
     .wrap {
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr 1fr;
       gap: 30px;
       align-items: start;
     }
@@ -50,26 +50,29 @@
 
     /* 가운데: 작업 설명 */
     .statement p {
-      margin: 0;
+      margin: 0 0 1em 0;
       text-align: left;
       font-size: 15px;
       font-weight: normal;
     }
     .statement p + p {
-      text-indent: 3ch;
+      text-indent: 3ch; /* 두 번째 문단만 들여쓰기 */
     }
 
-    /* 아래쪽: 프로젝트 리스트 (가로) */
+    /* 우측: 프로젝트 리스트 */
     .list {
-      margin-top: 50px;   /* 설명과 간격 */
-      font-size: 50px;    /* 본문 폰트 크기 동일 */
+      display: block;
+      font-size: 50px;
     }
-    .list a, .list span {
+    .item {
+      margin: 0 0 8px 0;
+    }
+    .item a {
       color: #000;
       text-decoration: none;
-      margin-right: 2ch;  /* 항목 간격 (띄어쓰기 두 개 정도) */
+      display: inline-block;
     }
-    .list a:hover { color: #808080; }
+    .item a:hover { color: #808080; }
     .muted {
       color: #cccccc;
       pointer-events: none;
@@ -78,7 +81,10 @@
 
     /* 반응형 */
     @media (max-width: 900px) {
-      .wrap { grid-template-columns: 1fr; }
+      .wrap { 
+        grid-template-columns: 1fr; 
+        row-gap: 60px; /* 좁아졌을 때 간격 */
+      }
     }
   </style>
 </head>
@@ -92,31 +98,29 @@
       <p>010-3315-2384</p>
     </aside>
 
-    <!-- 가운데: 작업 설명 + W 목록 -->
-    <div>
-      <section class="statement">
-        <p>
-          문자 언어의 한계를 절감하고, 끊임없이 문자로 된 설명을 요구하는 사회에 큰 피로를 느껴온 작업자는
-          필리프 자코테가 확정적 언어를 경계하며 자신만의 언어로 '시'를 택했듯, 본인의 언어로 '이미지'를 택하여 말하고자 한다.
-        </p>
-        <p>
-          이번 작업은 24년 겨울에 촬영한 랭스 시리즈가 담긴다. 무(無)에 가까웠던 2024년 겨울 랭스의 풍경.
-          그 단순한 풍경이 나를 압도했던 경험은 나로 하여금 풍경(외양–상–이미지)이 고유한 언어를 지니며
-          언제나 자신만의 방식으로 말을 건네고 있다는 사실을, 그리고 그 언어가 어떤 언어보다도 검소하기에
-          가장 적절한 설명을 제공할 수 있음을 믿게 했다. 이를 중심으로, 이미지가 가진 고유한 언어와 그 힘을 드러내는 시도이다.
-        </p>
-      </section>
+    <!-- 가운데: 작업 설명 -->
+    <section class="statement">
+      <p>
+        문자 언어의 한계를 절감하고, 끊임없이 문자로 된 설명을 요구하는 사회에 큰 피로를 느껴온 작업자는
+        필리프 자코테가 확정적 언어를 경계하며 자신만의 언어로 '시'를 택했듯, 본인의 언어로 '이미지'를 택하여 말하고자 한다.
+      </p>
+      <p>
+        이번 작업은 24년 겨울에 촬영한 랭스 시리즈가 담긴다. 무(無)에 가까웠던 2024년 겨울 랭스의 풍경.
+        그 단순한 풍경이 나를 압도했던 경험은 나로 하여금 풍경(외양–상–이미지)이 고유한 언어를 지니며
+        언제나 자신만의 방식으로 말을 건네고 있다는 사실을, 그리고 그 언어가 어떤 언어보다도 검소하기에
+        가장 적절한 설명을 제공할 수 있음을 믿게 했다. 이를 중심으로, 이미지가 가진 고유한 언어와 그 힘을 드러내는 시도이다.
+      </p>
+    </section>
 
-      <!-- 가로형 프로젝트 리스트 -->
-      <div class="list">
-        <a href="w1.html">W1/2025.9.2</a>
-        <a href="w2.html">W2/2025.9.9</a>
-        <a href="w3.html">W3/2025.9.16</a>
-        <a href="w4.html">W4/2025.9.23</a>
-        <a href="w5.html">W5/2025.9.30</a>
-        <span class="muted">W...</span>
-      </div>
-    </div>
+    <!-- 우측: 프로젝트/주차 리스트 -->
+    <main class="list">
+      <div class="item"><a href="w1.html">W1/2025.9.2</a></div>
+      <div class="item"><a href="w2.html">W2/2025.9.9</a></div>
+      <div class="item"><a href="w3.html">W3/2025.9.16</a></div>
+      <div class="item"><a href="w4.html">W4/2025.9.23</a></div>
+      <div class="item"><a href="w5.html">W5/2025.9.30</a></div>
+      <div class="item"><span class="muted">W...</span></div>
+    </main>
   </div>
 </body>
 </html>
