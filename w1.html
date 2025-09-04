@@ -1,191 +1,92 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <title>졸업프로젝트 — 장혁준</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-    }
+  <body style="margin:0; padding:0; font-family:Arial, sans-serif;">
 
-    /* === 전체 레이아웃 === */
-    .container {
-      display: grid;
-      grid-template-columns: 1fr 3fr; /* 좌측 1, 우측 3 */
-      min-height: 100vh;
-    }
+    <div style="display:flex; min-height:100vh;">
 
-    /* 좌측 상단부 */
-    .left-column {
-      padding: 40px 30px;
-      border-right: 1px solid #ddd;
-    }
-    .left-column h1 {
-      font-size: 36px;
-      font-weight: bold;
-      margin: 0;
-    }
-    .left-column h2 {
-      font-size: 22px;
-      margin: 8px 0 0 0;
-      font-weight: normal;
-    }
-    .left-column p {
-      font-size: 14px;
-      margin: 5px 0 0 0;
-      color: #444;
-    }
+      <!-- 좌측 고정 영역 -->
+      <div style="width:25%; padding:20px; box-sizing:border-box;">
+        <h2 style="margin:0;">졸업프로젝트</h2>
+        <p style="margin:5px 0;">장혁준</p>
+        <p style="margin:5px 0;"><a href="mailto:imjanghyukjun@gmail.com">imjanghyukjun@gmail.com</a></p>
+        <p style="margin:5px 0;"><a href="https://instagram.com/janghyukjun_" target="_blank">instagram.com/janghyukjun_</a></p>
+        <p style="margin:5px 0;">010-3315-2384</p>
+        <p style="margin:20px 0 0 0; font-weight:bold;">W1/2025.9.2</p>
+      </div>
 
-    /* 우측 2열 */
-    .right-column {
-      padding: 40px 30px;
-      overflow-y: auto;
-    }
+      <!-- 우측 슬라이드 영역 -->
+      <div style="width:75%; padding:20px; box-sizing:border-box; overflow-y:auto;">
 
-    /* 슬라이드 영역 */
-    .slider-section {
-      margin-bottom: 1.6em; /* 본문 행간과 동일 */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .slider {
-      position: relative;
-      width: 100%;
-      max-width: 1000px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: #000;
-    }
-    .slider img {
-      max-width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      display: none;
-    }
-    .slider img.active {
-      display: block;
-    }
-    .nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 20px;
-    }
-    .prev { left: 10px; }
-    .next { right: 10px; }
+        <!-- b시리즈 -->
+        <div class="slideshow-container" style="margin-bottom:20px;">
+          <div class="mySlides1"><img src="b1.jpg" style="width:100%"></div>
+          <div class="mySlides1"><img src="b2.jpg" style="width:100%"></div>
+          <div class="mySlides1"><img src="b3.jpg" style="width:100%"></div>
+          <div class="mySlides1"><img src="b4.jpg" style="width:100%"></div>
+          <div class="mySlides1"><img src="b5.jpg" style="width:100%"></div>
+          <div class="mySlides1"><img src="b6.jpg" style="width:100%"></div>
+          <div class="mySlides1"><img src="b7.jpg" style="width:100%"></div>
+          <div class="mySlides1"><img src="b8.jpg" style="width:100%"></div>
+          <div class="mySlides1"><img src="b9.jpg" style="width:100%"></div>
+          <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+        </div>
 
-    /* 하단 블랙바 */
-    .nav-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 20px;
-      background: #000;
-      z-index: 1000;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- 좌측 고정 영역 -->
-    <div class="left-column">
-      <h1><a href="index.html" style="text-decoration:none; color:#000;">졸업프로젝트</a></h1>
-      <h2>장혁준</h2>
-      <p>W1/2025.9.2</p>
+        <!-- r시리즈 -->
+        <div class="slideshow-container" style="margin-bottom:20px;">
+          <div class="mySlides2"><img src="r1.jpg" style="width:100%"></div>
+          <div class="mySlides2"><img src="r2.jpg" style="width:100%"></div>
+          <div class="mySlides2"><img src="r3.jpg" style="width:100%"></div>
+          <div class="mySlides2"><img src="r4.jpg" style="width:100%"></div>
+          <div class="mySlides2"><img src="r5.jpg" style="width:100%"></div>
+          <div class="mySlides2"><img src="r6.jpg" style="width:100%"></div>
+          <div class="mySlides2"><img src="r7.jpg" style="width:100%"></div>
+          <div class="mySlides2"><img src="r8.jpg" style="width:100%"></div>
+          <div class="mySlides2"><img src="r9.jpg" style="width:100%"></div>
+          <div class="mySlides2"><img src="r10.jpg" style="width:100%"></div>
+          <div class="mySlides2"><img src="r11.jpg" style="width:100%"></div>
+          <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+        </div>
+
+        <!-- m시리즈 -->
+        <div class="slideshow-container">
+          <div class="mySlides3"><img src="m1.jpg" style="width:100%"></div>
+          <div class="mySlides3"><img src="m2.jpg" style="width:100%"></div>
+          <div class="mySlides3"><img src="m3.jpg" style="width:100%"></div>
+          <div class="mySlides3"><img src="m4.jpg" style="width:100%"></div>
+          <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+        </div>
+
+      </div>
     </div>
 
-    <!-- 우측 슬라이드 영역 -->
-    <div class="right-column">
-      <!-- 첫 번째 슬라이드 (b1~b9) -->
-      <section class="slider-section">
-        <div class="slider" id="slider1">
-          <button class="nav-btn prev" onclick="prevSlide(1)">&#10094;</button>
-          <img src="images/b1.jpg" class="active">
-          <img src="images/b2.jpg">
-          <img src="images/b3.jpg">
-          <img src="images/b4.jpg">
-          <img src="images/b5.jpg">
-          <img src="images/b6.jpg">
-          <img src="images/b7.jpg">
-          <img src="images/b8.jpg">
-          <img src="images/b9.jpg">
-          <button class="nav-btn next" onclick="nextSlide(1)">&#10095;</button>
-        </div>
-      </section>
+    <!-- 하단 고정 블랙바 -->
+    <div style="position:fixed; bottom:0; left:0; width:100%; height:20px; background:black;"></div>
 
-      <!-- 두 번째 슬라이드 (090212~090222) -->
-      <section class="slider-section">
-        <div class="slider" id="slider2">
-          <button class="nav-btn prev" onclick="prevSlide(2)">&#10094;</button>
-          <img src="images/090212.jpg" class="active">
-          <img src="images/090213.jpg">
-          <img src="images/090214.jpg">
-          <img src="images/090215.jpg">
-          <img src="images/090216.jpg">
-          <img src="images/090217.jpg">
-          <img src="images/090218.jpg">
-          <img src="images/090219.jpg">
-          <img src="images/090220.jpg">
-          <img src="images/090221.jpg">
-          <img src="images/090222.jpg">
-          <button class="nav-btn next" onclick="nextSlide(2)">&#10095;</button>
-        </div>
-      </section>
+    <!-- 슬라이드 기능 -->
+    <script>
+      let slideIndex = [1,1,1];
+      let slideId = ["mySlides1", "mySlides2", "mySlides3"];
+      showSlides(1, 0);
+      showSlides(1, 1);
+      showSlides(1, 2);
 
-      <!-- 세 번째 슬라이드 (m1~m4) -->
-      <section class="slider-section">
-        <div class="slider" id="slider3">
-          <button class="nav-btn prev" onclick="prevSlide(3)">&#10094;</button>
-          <img src="images/m1.jpg" class="active">
-          <img src="images/m2.jpg">
-          <img src="images/m3.jpg">
-          <img src="images/m4.jpg">
-          <button class="nav-btn next" onclick="nextSlide(3)">&#10095;</button>
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <!-- 하단 블랙바 -->
-  <div class="nav-bar"></div>
-
-  <script>
-    const slideIndexes = {1:0, 2:0, 3:0};
-
-    function showSlide(sliderId, index) {
-      const slider = document.getElementById("slider"+sliderId);
-      const slides = slider.getElementsByTagName("img");
-      if (index >= slides.length) slideIndexes[sliderId] = 0;
-      if (index < 0) slideIndexes[sliderId] = slides.length-1;
-      for (let i=0; i<slides.length; i++) {
-        slides[i].classList.remove("active");
+      function plusSlides(n, no) {
+        showSlides(slideIndex[no] += n, no);
       }
-      slides[slideIndexes[sliderId]].classList.add("active");
-    }
 
-    function nextSlide(sliderId) {
-      slideIndexes[sliderId]++;
-      showSlide(sliderId, slideIndexes[sliderId]);
-    }
-
-    function prevSlide(sliderId) {
-      slideIndexes[sliderId]--;
-      showSlide(sliderId, slideIndexes[sliderId]);
-    }
-  </script>
-</body>
+      function showSlides(n, no) {
+        let i;
+        let x = document.getElementsByClassName(slideId[no]);
+        if (n > x.length) {slideIndex[no] = 1}
+        if (n < 1) {slideIndex[no] = x.length}
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        x[slideIndex[no]-1].style.display = "block";  
+      }
+    </script>
+  </body>
 </html>
