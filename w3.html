@@ -52,9 +52,11 @@
 
     /* 우측 큰 텍스트 */
     .text-box {
-      font-size: 200pt;
+      font-size: 200pt;          /* 기본: PC용 */
       font-weight: light;
       line-height: 1;
+      word-break: break-word;    /* 넘치면 줄바꿈 */
+      white-space: normal;       /* 한 줄 고정 해제 */
     }
 
     /* 하단 고정 네비게이션 바 */
