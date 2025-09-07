@@ -11,6 +11,7 @@
       background: #fff;
       font-family: Arial, Helvetica, sans-serif;
       color: #000;
+      height: 100%;
     }
 
     .wrap {
@@ -20,6 +21,8 @@
       padding: 20px;
       padding-bottom: 60px; /* 블랙바 여유 */
       align-items: start;
+      height: calc(100vh - 20px); /* 전체 높이 - 블랙바 높이 */
+      box-sizing: border-box;
     }
 
     /* 좌측: 정보 */
@@ -30,7 +33,6 @@
       font-weight: normal;
       font-size: 15px;
     }
-
 
     .side h2 {
       margin-bottom: 20px;
@@ -47,18 +49,20 @@
     }
     .side a:hover { color: #808080; }
 
-    /* 우측 큰 텍스트 */
+    /* 우측: 2열 줄글 */
     .text-box {
-      font-size: 200pt;
-      font-weight: light;
-      line-height: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 2열 */
+      gap: 40px;                      /* 열 간격 */
+      font-size: 15px;                /* 좌측과 동일 */
+      font-weight: normal;
+      line-height: 1.6;
+      height: 100%;
     }
-    .text-box {
-      font-size: 200pt;          /* 기본: PC용 */
-      font-weight: light;
-      line-height: 1;
-      word-break: break-word;    /* 넘치면 줄바꿈 */
-      white-space: normal;       /* 한 줄 고정 해제 */
+
+    .text-box div {
+      overflow-y: auto;   /* 각 열 스크롤 */
+      padding-right: 10px;
     }
 
     /* 하단 고정 네비게이션 바 */
@@ -74,6 +78,7 @@
 
     @media (max-width: 900px) {
       .wrap { grid-template-columns: 1fr; }
+      .text-box { grid-template-columns: 1fr; } /* 모바일에서는 한 열 */
     }
   </style>
 </head>
@@ -98,9 +103,21 @@
       <p><span style="color: rgb(0,0,0,0.3);">···</span></p>
     </aside>
 
-    <!-- 우측: 큰 텍스트 -->
+    <!-- 우측: 2열 줄글 -->
     <div class="text-box">
-      25.9.9.
+      <div>
+        <p><u>주제</u></p>
+        <p>해당 페이지 작업중입니다. 수정이 완성되면 해당 문구는 사라져요..수정 후 작성 예정.</p>
+      </div>
+      <div>
+        <p><u>매체</u></p>
+        <p>책: 295*240mm, 350p. 제책: 인디고, 실-PUR, 커버 형압. </p>
+        <br>
+        <p><u>디스플레이</u></p>
+        <p>재료: 테이블, 스툴, 10권 이상의 책</p>
+        <p>스툴 위에 N권의 책들을 쌓아 완성. (책등이 쌓여 만들어내는 이미지를 사용하고 싶어요)</p>
+        <p>테이블(1100*1100mm), 스툴(295*240*540mm-책 크기 맞춰 제작 의뢰.) 테이블 위 책 두권. 스툴 위에 책을 쌓아 하나의 설치로. 이미지 첨부 예정.</p>
+      </div>
     </div>
   </div>
 
