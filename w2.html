@@ -64,9 +64,11 @@
       margin: 0 0 1px 0;
     }
     
-    .text-box div {
-      overflow-y: auto;
+    .text-box > div {
+      height: 100%;       /* 🔥 부모 높이에 맞춰줌 */
+      overflow-y: auto;   /* 🔥 각 칸에서만 세로 스크롤 가능 */
       padding-right: 10px;
+      box-sizing: border-box;
     }
 
     /* 단일 이미지 */
