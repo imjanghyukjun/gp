@@ -87,6 +87,16 @@
       width: 100%;
       display: none;
     }
+    .slides img {
+      width: auto;        /* 비율 유지 */
+      max-width: 100%;    /* 컨테이너보다 커지지 않게 */
+      display: none;
+      margin: 0 auto;     /* 🔥 가로 가운데 정렬 */
+    }
+    .slides img.active {
+      display: block;
+      margin: 0 auto;     /* 🔥 활성화된 이미지도 중앙 */
+    }
     .slides img.active {
       display: block;
     }
