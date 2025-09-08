@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <title>졸업프로젝트 / 장혁준</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-  />
   <style>
     html, body {
       margin: 0;
@@ -73,7 +69,7 @@
       padding-right: 10px;
     }
 
-    /* 이미지 & 슬라이드 */
+    /* 단일 이미지 */
     .single-image {
       margin-top: 20px;
     }
@@ -82,43 +78,30 @@
       display: block;
     }
 
-    .swiper {
-      width: 100%;
-      height: auto;
+    /* 버튼식 슬라이드 */
+    .slider {
+      position: relative;
       margin-top: 20px;
     }
-
-    .swiper,
-    .swiper-wrapper,
-    .swiper-slide {
-      height: auto !important;
-    }
-
-    .swiper-slide img {
+    .slides img {
       width: 100%;
-      height: auto;
-      display: block;
-    
+      display: none;
     }
-    .swiper-slide img {
-      width: 100%;
+    .slides img.active {
       display: block;
     }
-
-    /* dot 네비게이션 */
-    .swiper-pagination {
-      position: relative;
-      margin-top: 10px;
-      text-align: center;
+    .slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
     }
-    .swiper-pagination-bullet {
-      background: #000;
-      opacity: 0.3;
-    }
-    .swiper-pagination-bullet-active {
-      background: #000;
-      opacity: 1;
-    }
+    .slider .prev { left: 10px; }
+    .slider .next { right: 10px; }
 
     /* 하단 고정 네비게이션 바 */
     .nav-bar {
@@ -168,7 +151,7 @@
         <p><b>매체</b></p>
         <p><span style="color: rgb(0,0,0,0.3);">작품형식</span>   책 </p>
         <p><span style="color: rgb(0,0,0,0.3);">작품크기</span>   295*240mm, 350p. </p>
-        <p><span style="color: rgb(0,0,0,0.3);">제작방식</span>   인디고, 실-PUR-ota, 커버 형압. </p>
+        <p><span style="color: rgb(0,0,0,0.3);">제작방식</span>   인디고, 실-PUR, 커버 형압. </p>
       </div>
       <div>
         <p><b>디스플레이</b></p>
@@ -178,15 +161,18 @@
         <div class="single-image">
           <img src="images/Display.jpg" alt="디스플레이 메인 이미지">
         </div>
-        <p>레퍼런스...</p>
-        <!-- 두 번째: 슬라이드 (자동재생+드래그+dot) -->
-        <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="images/display-ref1.png" alt="참고1"></div>
-            <div class="swiper-slide"><img src="images/display-ref2.jpg" alt="참고2"></div>
-            <div class="swiper-slide"><img src="images/display-ref3.jpg" alt="참고3"></div>
+        <br>
+        <br>
+        <p>레퍼런스</p>
+        <!-- 두 번째: 버튼식 슬라이드 -->
+        <div class="slider">
+          <div class="slides">
+            <img src="images/display-ref1.png" alt="참고1" class="active">
+            <img src="images/display-ref2.jpg" alt="참고2">
+            <img src="images/display-ref3.jpg" alt="참고3">
           </div>
-          <div class="swiper-pagination"></div>
+          <button class="prev">◀</button>
+          <button class="next">▶</button>
         </div>
       </div>
     </div>
@@ -195,23 +181,27 @@
   <!-- 하단 고정 네비게이션 바 -->
   <div class="nav-bar"></div>
 
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    const swiper = new Swiper(".mySwiper", {
-      loop: true,
-      autoplay: {
-        delay: 3000,   // 3초마다 자동 전환
-        disableOnInteraction: false
-      },
-      slidesPerView: 1,
-      spaceBetween: 10,
-      grabCursor: true, // 드래그 지원
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      },
-      autoHeight: true
+    const slides = document.querySelectorAll('.slides img');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) img.classList.add('active');
+      });
+    }
+
+    prev.addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+
+    next.addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
     });
   </script>
 </body>
