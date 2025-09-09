@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>졸업프로젝트 / 장혁준</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: rgb(235,235,235);
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000;
+    }
+
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      padding: 20px;
+      padding-bottom: 60px; /* 블랙바 여유 */
+      align-items: start;
+    }
+
+    /* 좌측: 정보 */
+    .side h1,
+    .side h2,
+    .side p {
+      margin: 0 0 0 0;            
+      font-weight: normal;
+      font-size: 15px;
+    }
+
+
+    .side h2 {
+      margin-bottom: 20px;
+    }
+    
+      .side h1 a,
+      .side h2 {
+        text-decoration: underline;
+    }
+
+      .side a {
+        color: #000;
+        text-decoration: none;
+    }
+    .side a:hover { color: rgb(118,251,106); }
+    .side p:hover { color: rgb(118,251,106); }
+
+
+    /* 우측: 슬라이드 */
+    .slides-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .slideshow-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .mySlides { display: none; }
+
+    /* 버튼 */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 16px;
+      font-weight: bold;
+      font-size: 30px;
+      color: white;
+      user-select: none;
+    }
+    .prev { left: 0; }
+    .next { right: 0; }
+
+    /* 하단 고정 네비게이션 바 */
+    .nav-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: #000;
+      z-index: 100;
+    }
+
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- 좌측: 고정 정보 -->
+    <aside class="side">
+      <h1><a href="index.html">졸업프로젝트</a></h1>
+      <h2>장혁준</h2>
+      <p><a href="h/w1"><span style="color: rgb(0,0,255);">W1/2025.9.2</span></a></p>
+      <p><a href="h/w2"><span style="color: rgb(0,0,0,0.3);">W2/2025.9.9</span></a></p>
+      <p><a href="h/w3"><span style="color: rgb(0,0,0,0.3);">W3/2025.9.16</span></a></p>
+      <p><a href="h/w4"><span style="color: rgb(0,0,0,0.3);">W4/2025.9.23</span></a></p>
+      <p><a href="h/w5"><span style="color: rgb(0,0,0,0.3);">W5/2025.9.30</span></a></p>
+      <p><a href="h/w6"><span style="color: rgb(0,0,0,0.3);">W6/2025.10.7</span></a></p>
+      <p><a href="h/w7"><span style="color: rgb(0,0,0,0.3);">W7/2025.10.14</span></a></p>
+      <p><a href="h/w8"><span style="color: rgb(0,0,0,0.3);">W8/2025.10.21</span></a></p>
+      <p><a href="h/w9"><span style="color: rgb(0,0,0,0.3);">W9/2025.10.28</span></a></p>
+      <p><a href="h/w10"><span style="color: rgb(0,0,0,0.3);">W10/2025.11.4</span></a></p>
+      <p><a href="h/w11"><span style="color: rgb(0,0,0,0.3);">W11/2025.11.11</span></a></p>
+      <p><a href="h/w12"><span style="color: rgb(0,0,0,0.3);">W12/2025.11.18</span></a></p>
+      <p><span style="color: rgb(0,0,0,0.3);">···</span></p>
+    </aside>
+
+    <!-- 우측: 세 개의 슬라이드 -->
+    <div class="slides-container">
+      
+      <!-- b 시리즈 -->
+      <div class="slideshow-container">
+        <div class="mySlides b"><img src="images/b1.jpg"></div>
+        <div class="mySlides b"><img src="images/b2.jpg"></div>
+        <div class="mySlides b"><img src="images/b3.jpg"></div>
+        <div class="mySlides b"><img src="images/b4.jpg"></div>
+        <div class="mySlides b"><img src="images/b5.jpg"></div>
+        <div class="mySlides b"><img src="images/b6.jpg"></div>
+        <div class="mySlides b"><img src="images/b7.jpg"></div>
+        <div class="mySlides b"><img src="images/b8.jpg"></div>
+        <div class="mySlides b"><img src="images/b9.jpg"></div>
+        <a class="prev" onclick="plusSlides(-1, 'b')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 'b')">&#10095;</a>
+      </div>
+
+      <!-- r 시리즈 -->
+      <div class="slideshow-container">
+        <div class="mySlides r"><img src="images/r1.jpg"></div>
+        <div class="mySlides r"><img src="images/r2.jpg"></div>
+        <div class="mySlides r"><img src="images/r3.jpg"></div>
+        <div class="mySlides r"><img src="images/r4.jpg"></div>
+        <div class="mySlides r"><img src="images/r5.jpg"></div>
+        <div class="mySlides r"><img src="images/r6.jpg"></div>
+        <div class="mySlides r"><img src="images/r7.jpg"></div>
+        <div class="mySlides r"><img src="images/r8.jpg"></div>
+        <div class="mySlides r"><img src="images/r9.jpg"></div>
+        <div class="mySlides r"><img src="images/r10.jpg"></div>
+        <div class="mySlides r"><img src="images/r11.jpg"></div>
+        <a class="prev" onclick="plusSlides(-1, 'r')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 'r')">&#10095;</a>
+      </div>
+
+      <!-- m 시리즈 -->
+      <div class="slideshow-container">
+        <div class="mySlides m"><img src="images/m1.jpg"></div>
+        <div class="mySlides m"><img src="images/m2.jpg"></div>
+        <div class="mySlides m"><img src="images/m3.jpg"></div>
+        <div class="mySlides m"><img src="images/m4.jpg"></div>
+        <a class="prev" onclick="plusSlides(-1, 'm')">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 'm')">&#10095;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 고정 네비게이션 바 -->
+  <div class="nav-bar"></div>
+
+  <script>
+    // 슬라이드 초기화
+    let slideIndex = { b:1, r:1, m:1 };
+    showSlides(1, 'b');
+    showSlides(1, 'r');
+    showSlides(1, 'm');
+
+    function plusSlides(n, group) {
+      showSlides(slideIndex[group] += n, group);
+    }
+
+    function showSlides(n, group) {
+      let i;
+      let slides = document.getElementsByClassName(group);
+      if (n > slides.length) { slideIndex[group] = 1 }
+      if (n < 1) { slideIndex[group] = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex[group]-1].style.display = "block";
+    }
+  </script>
+</body>
+</html>
