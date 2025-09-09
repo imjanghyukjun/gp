@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>졸업프로젝트 / 장혁준</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: rgb(235,235,235);
+      font-family: Arial, Helvetica, sans-serif;
+      color: #000;
+      height: 100%;
+    }
+
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr 2fr; /* 좌측:정보 / 우측:텍스트 */
+      gap: 40px;
+      padding: 20px;
+      padding-bottom: 60px; /* 블랙바 여유 */
+      align-items: start;
+      height: calc(100vh - 20px);
+      box-sizing: border-box;
+    }
+
+    /* 좌측: 정보 */
+    .side h1,
+    .side h2,
+    .side p {
+      margin: 0;
+      font-weight: normal;
+      font-size: 15px;
+    }
+
+    .side h2 {
+      margin-bottom: 20px;
+    }
+    
+    .side h1 a,
+    .side h2 {
+      text-decoration: underline;
+    }
+
+    .side a {
+      color: #000;
+      text-decoration: none;
+    }
+    .side a:hover { color: rgb(118,251,106); }
+    .side p:hover { color: rgb(118,251,106); }
+
+    /* 우측: 2열 줄글 */
+    .text-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      font-size: 15px;
+      font-weight: normal;
+      line-height: 1.2;
+      height: 100%;
+    }
+    
+    .text-box p {
+      margin: 0 0 1px 0;
+    }
+    
+    .text-box > div {
+      height: 100%;       /* 부모 높이에 맞춰줌 */
+      overflow-y: auto;   /* 각 칸에서만 세로 스크롤 가능 */
+      padding-right: 10px;
+      box-sizing: border-box;
+    }
+
+    /* 단일 이미지 */
+    .single-image {
+      margin-top: 1px;
+    }
+    .single-image img {
+      width: 100%;
+      display: block;
+    }
+
+    /* 버튼식 슬라이드 */
+    .slider {
+      position: relative;
+      margin-top: 1px;
+    }
+    .slides img {
+      width: 100%;
+      display: none;
+    }
+    .slides img {
+      width: auto;        /* 비율 유지 */
+      max-width: 100%;    /* 컨테이너보다 커지지 않게 */
+      display: none;
+      margin: 0 auto;     /* 가로 가운데 정렬 */
+    }
+    .slides img.active {
+      display: block;
+      margin: 0 auto;     /* 활성화된 이미지도 중앙 */
+    }
+    .slides img.active {
+      display: block;
+    }
+    .slider button {
+      position: absolute;
+      top: 10px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .slider .prev { left: 10px; }
+    .slider .next { right: 10px; }
+
+    /* 하단 고정 네비게이션 바 */
+    .nav-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: #000;
+      z-index: 100;
+    }
+
+    @media (max-width: 900px) {
+      .wrap { grid-template-columns: 1fr; }
+      .text-box { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- 좌측: 고정 정보 -->
+    <aside class="side">
+      <h1><a href="index.html">졸업프로젝트</a></h1>
+      <h2>장혁준</h2>
+      <p><a href="h/w1"><span style="color: rgb(0,0,0,0.3);">W1/2025.9.2</span></a></p>
+      <p><a href="h/w2"><span style="color: rgb(0,0,255);">W2/2025.9.9</span></a></p>
+      <p><a href="h/w3"><span style="color: rgb(0,0,0,0.3);">W3/2025.9.16</span></a></p>
+      <p><a href="h/w4"><span style="color: rgb(0,0,0,0.3);">W4/2025.9.23</span></a></p>
+      <p><a href="h/w5"><span style="color: rgb(0,0,0,0.3);">W5/2025.9.30</span></a></p>
+      <p><a href="h/w6"><span style="color: rgb(0,0,0,0.3);">W6/2025.10.7</span></a></p>
+      <p><a href="h/w7"><span style="color: rgb(0,0,0,0.3);">W7/2025.10.14</span></a></p>
+      <p><a href="h/w8"><span style="color: rgb(0,0,0,0.3);">W8/2025.10.21</span></a></p>
+      <p><a href="h/w9"><span style="color: rgb(0,0,0,0.3);">W9/2025.10.28</span></a></p>
+      <p><a href="h/w10"><span style="color: rgb(0,0,0,0.3);">W10/2025.11.4</span></a></p>
+      <p><a href="h/w11"><span style="color: rgb(0,0,0,0.3);">W11/2025.11.11</span></a></p>
+      <p><a href="h/w12"><span style="color: rgb(0,0,0,0.3);">W12/2025.11.18</span></a></p>
+      <p><span style="color: rgb(0,0,0,0.3);">···</span></p>
+    </aside>
+
+    <!-- 우측: 2열 줄글 -->
+    <div class="text-box">
+      <div>
+        <p><b>주제</b></p>
+        <p><span style="color: rgb(0,0,0,0.3);">작업설명</span>   무(無)에 가까웠던 2024년 겨울 랭스의 풍경은, 이미지가 말로 환원되지 않는 고유한 언어를 지니고 있음을 일깨워주었다. 필리프 자코테가 확정적 언어를 경계하며 자신의 언어로 시를 택했듯, 나는 글·문자의 형태를 갖춘 언어를 배제하고 이미지라는 언어를 따른다. 이번 작업은 오직 이미지로써, 24년 1월 랭스의 풍경이 말하던 바를 옮겨내려는 시도다.</p>
+        <p><span style="color: rgb(0,0,0,0.3);">표현방식</span>   모든 내지는 이미지로만 완성. 텍스트는 별도 인쇄 후 촬영하여 이미지로 삽입.</p>
+        <br>
+        <p><b>매체</b></p>
+        <p><span style="color: rgb(0,0,0,0.3);">작품형식</span>   책 </p>
+        <p><span style="color: rgb(0,0,0,0.3);">작품크기</span>   295*240mm, 350p. </p>
+        <p><span style="color: rgb(0,0,0,0.3);">제작방식</span>   인디고, 실-PUR, 커버 형압. </p>
+        
+      </div>
+      <div>
+        <p><b>디스플레이</b></p>
+        <p><span style="color: rgb(0,0,0,0.3);">재료</span>   테이블(900*760mm), 스툴(295*240*440mm), 액자(1100*280mm), 책(295*240mm)</p>
+        
+        <!-- 첫 번째: 단일 이미지 -->
+        <div class="single-image">
+          <img src="images/Display.jpg" alt="디스플레이 메인 이미지">
+        </div>
+        <br>
+        <br>
+        <p><span style="color: rgb(0,0,0,0.3);">참조이미지</span></p>
+        <!-- 두 번째: 버튼식 슬라이드 -->
+        <div class="slider">
+          <div class="slides">
+            <img src="images/display-ref2.jpg" alt="참고1" class="active">
+            <img src="images/display-ref1.png" alt="참고2">
+            <img src="images/display-ref3.jpg" alt="참고3">
+            <img src="images/dre1.jpeg" alt="참고4">
+            <img src="images/dre2.jpeg" alt="참고5">
+            <img src="images/dre3.jpeg" alt="참고6">
+            <img src="images/dre4.jpeg" alt="참고7">
+          </div>
+          <button class="prev">◀</button>
+          <button class="next">▶</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 고정 네비게이션 바 -->
+  <div class="nav-bar"></div>
+
+  <script>
+    const slides = document.querySelectorAll('.slides img');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) img.classList.add('active');
+      });
+    }
+
+    prev.addEventListener('click', () => {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+
+    next.addEventListener('click', () => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+  </script>
+</body>
+</html>
