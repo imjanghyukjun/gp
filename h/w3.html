@@ -100,13 +100,22 @@
       line-height: 1.6;
       font-size: 15px;
       max-width: 600px;
+      text-align: left; /* 좌측 정렬 */
+      white-space: normal;
+      word-break: keep-all;
+      overflow-wrap: normal;
     }
 
-    .text-section p {
-      margin: 0 0 0 0; /* 아래쪽만 10px 여백, 위쪽은 0 */
-      text-indent: 1.5em; /* 들여쓰기 */
+    .statement p {
+      margin: 0 0 0 0; /* 문단 간격 없음 */
     }
 
+    .statement p + p {
+      text-indent: 13ch; /* 두 번째 문단 들여쓰기 */
+      
+    }
+
+ 
     
     .four-column-images {
       display: flex;
