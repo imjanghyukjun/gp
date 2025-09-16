@@ -102,6 +102,25 @@
       font-size: 16px;
       max-width: 800px;
     }
+    .table-slider {
+      overflow: hidden;
+      width: 100%;
+      max-width: 800px;
+      margin-top: 40px;
+    }
+    .table-slider .slide-track {
+      display: flex;
+      gap: 20px;
+      scroll-snap-type: x mandatory;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .table-slider img {
+      width: calc(50% - 10px); /* 두 장씩 보이게 */
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
@@ -162,8 +181,16 @@
         그래서 나는 이미지의 언어를 택한다. 이미지는 장황한 설명 없이도 가장 검소한 형태로 적절한 설명을 제공할 수 있으니까. 표지-제목은 24년 겨울 내가 마주한 랭스와 관련해 그 무엇도 설명하지 못한 채 발음과 관련된 여러 가능성만을 맴돌 뿐이지만, 내지에 담긴 이미지들은 부족함 없이 랭스를 전한다. 글-문자 언어의 명확성을 잠시 내려놓고, 이미지의 언어로 세계를 바라본다. 그것이 내가 이 책으로 하고자 한 일이다.
         <br>
         (표지와 제목을 고민하며 랭스를 말하기 위해 글-문자 언어는 전혀 중요하지 않음을 느낍니다. 그럼에도 다시한번 작업 설명을 작성하고 있는 나. 오늘날 작업자에게 글-문자 언어란 분리해낼 수 없는 것일까 하고 생각 !)
-        
       </p>
+      <div class="table-slider">
+        <div class="slide-track">
+          <img src="table1.jpg" alt="table1">
+          <img src="table2.jpg" alt="table2">
+          <img src="table3.jpg" alt="table3">
+          <img src="table4.jpg" alt="table4">
+        </div>
+      </div>
+      
     </section>
 
   </main>
