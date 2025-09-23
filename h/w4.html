@@ -8,9 +8,12 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: rgb(235,235,235);
       font-family: Arial, Helvetica, sans-serif;
       color: #000;
+
+      /* 배경 이미지 설정 */
+      background: url("./gp/images/bg2.jpg") no-repeat center center fixed;
+      background-size: cover; /* 화면 꽉 채우기 */
     }
 
     .wrap {
@@ -20,6 +23,9 @@
       padding: 20px;
       padding-bottom: 60px; /* 블랙바 여유 */
       align-items: start;
+
+      /* 텍스트 가독성 확보용 (원하지 않으면 이 부분 삭제) */
+      background: rgba(235,235,235,0.7);
     }
 
     /* 좌측: 정보 */
@@ -30,7 +36,6 @@
       font-weight: normal;
       font-size: 15px;
     }
-
 
     .side h2 {
       margin-bottom: 20px;
@@ -49,7 +54,7 @@
 
     /* 우측 큰 텍스트 */
     .text-box {
-      font-size: 200pt;          /* 기본: PC용 */
+      font-size: 100pt;          /* 기본: PC용 */
       font-weight: light;
       line-height: 1;
       word-break: break-word;    /* 넘치면 줄바꿈 */
@@ -81,7 +86,7 @@
       <p><a href="./w1"><span style="color: rgb(0,0,0,0.3);">W1/2025.9.2</span></a></p>
       <p><a href="./w2"><span style="color: rgb(0,0,0,0.3);">W2/2025.9.9</span></a></p>
       <p><a href="./w3"><span style="color: rgb(0,0,0,0.3);">W3/2025.9.16</span></a></p>
-      <p><a href="./w4"><span style="color: red;">W4/2025.9.23</span></a></p>
+      <p><a href="./w4"><span style="color: rgb(0,0,255);">W4/2025.9.23</span></a></p>
       <p><a href="./w5"><span style="color: rgb(0,0,0,0.3);">W5/2025.9.30</span></a></p>
       <p><a href="./w6"><span style="color: rgb(0,0,0,0.3);">W6/2025.10.7</span></a></p>
       <p><a href="./w7"><span style="color: rgb(0,0,0,0.3);">W7/2025.10.14</span></a></p>
@@ -95,7 +100,7 @@
 
     <!-- 우측: 큰 텍스트 -->
     <div class="text-box">
-      25.9.23.
+      (랭스 연작, 사진 작업 중입니다)
     </div>
   </div>
 
